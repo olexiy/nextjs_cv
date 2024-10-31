@@ -1,37 +1,70 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Github, Linkedin, Moon, Sun, Mail, MapPin, Calendar, Download } from "lucide-react"
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Github,
+  Linkedin,
+  Moon,
+  Sun,
+  Mail,
+  MapPin,
+  Calendar,
+} from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
 
 export default function Component() {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(false);
 
   const toggleTheme = () => {
-    setIsDark(!isDark)
-    document.documentElement.classList.toggle("dark")
-  }
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle("dark");
+  };
 
   return (
-    <div className={`min-h-screen bg-[#A3B8AB] dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50`}>
+    <div
+      className={`min-h-screen bg-[#A3B8AB] dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50`}
+    >
       <header className="sticky top-0 z-50 w-full border-b border-black/10 bg-[#A3B8AB]/95 dark:bg-zinc-900/95 backdrop-blur supports-[backdrop-filter]:bg-[#A3B8AB]/60">
-        <div className="container flex h-16 items-center justify-between">
-          <h1 className="text-2xl font-serif">
-            Olexiy Sokurenko
-          </h1>
+        <div className="container flex h-24 items-center justify-between px-4 md:px-8">
+          {" "}
+          {/* increased height and padding */}
+          <div className="space-y-2">
+            {" "}
+            {/* Added container for text */}
+            <h1 className="text-3xl md:text-4xl font-serif font-bold">
+              {" "}
+              {/* increased font size */}
+              Your next Full-Stack Dev.
+            </h1>
+            <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-300">
+              {" "}
+              {/* Added subtitle */}
+              Building scalable solutions with modern technologies
+            </p>
+          </div>
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="hover:bg-black/10 dark:hover:bg-white/10">
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="hover:bg-black/10 dark:hover:bg-white/10"
+            >
+              {isDark ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
               <span className="sr-only">Toggle theme</span>
             </Button>
           </div>
         </div>
       </header>
 
-      <main className="container py-8 md:py-12">
+      <main className="container py-12 md:py-16 px-4 md:px-8">
+        {" "}
+        {/* increased padding */}
         <div className="grid gap-8 md:grid-cols-[300px_1fr]">
           <aside className="space-y-6">
             <Card className="overflow-hidden border-black/10 dark:border-white/10 bg-white/80 dark:bg-zinc-800/80">
@@ -51,7 +84,9 @@ export default function Component() {
               <CardContent className="pt-16 pb-4">
                 <div className="text-center">
                   <h2 className="text-xl font-serif">Olexiy Sokurenko</h2>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400 font-light">Senior Java Developer</p>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400 font-light">
+                    Senior Java Developer
+                  </p>
                 </div>
                 <div className="mt-4 space-y-2">
                   <div className="flex items-center gap-2 text-sm">
@@ -60,29 +95,65 @@ export default function Component() {
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Calendar className="h-4 w-4" />
-                    <span className="font-light">Available for immediate start</span>
+                    <span className="font-light">
+                      Available for immediate start
+                    </span>
                   </div>
                 </div>
                 <div className="mt-4 flex justify-center space-x-4">
-                  <Button variant="outline" size="icon" asChild className="border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">
-                    <a href="mailto:olexiy.sokurenko@gmail.com" aria-label="Email">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    asChild
+                    className="border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5"
+                  >
+                    <a
+                      href="mailto:olexiy.sokurenko@gmail.com"
+                      aria-label="Email" target="_blank"
+                    >
                       <Mail className="h-4 w-4" />
                     </a>
                   </Button>
-                  <Button variant="outline" size="icon" asChild className="border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">
-                    <a href="https://github.com/olexiy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    asChild
+                    className="border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5"
+                  >
+                    <a
+                      href="https://github.com/olexiy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
+                    >
                       <Github className="h-4 w-4" />
                     </a>
                   </Button>
-                  <Button variant="outline" size="icon" asChild className="border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">
-                    <a href="https://www.linkedin.com/in/olexiy-sokurenko/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    asChild
+                    className="border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5"
+                  >
+                    <a
+                      href="https://www.linkedin.com/in/olexiy-sokurenko/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                    >
                       <Linkedin className="h-4 w-4" />
                     </a>
                   </Button>
                 </div>
                 <div className="mt-4 flex justify-center">
-                  <Button asChild className="bg-black hover:bg-black/90 text-white dark:bg-white dark:text-black dark:hover:bg-white/90">
-                    <a href="/path-to-your-cv.pdf" download="Olexiy_Sokurenko_CV.pdf">
+                  <Button
+                    asChild
+                    className="bg-black hover:bg-black/90 text-white dark:bg-white dark:text-black dark:hover:bg-white/90"
+                  >
+                    <a
+                      href="/path-to-your-cv.pdf"
+                      download="Olexiy_Sokurenko_CV.pdf"
+                    >
                       Download CV
                     </a>
                   </Button>
@@ -101,7 +172,9 @@ export default function Component() {
                   </li>
                   <li className="flex justify-between">
                     <span>English</span>
-                    <span className="text-black dark:text-white">Professional</span>
+                    <span className="text-black dark:text-white">
+                      Professional
+                    </span>
                   </li>
                   <li className="flex justify-between">
                     <span>Ukrainian</span>
@@ -119,13 +192,17 @@ export default function Component() {
           <div className="space-y-8">
             <Card className="border-black/10 dark:border-white/10 bg-white/80 dark:bg-zinc-800/80">
               <CardHeader>
-                <CardTitle className="font-serif">Professional Summary</CardTitle>
+                <CardTitle className="font-serif">
+                  Professional Summary
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-zinc-600 dark:text-zinc-400 font-light">
-                  Senior Java Developer with 15+ years of experience specializing in microservices architecture, Spring
-                  ecosystem, and DevOps practices. Proven track record in designing and implementing cloud-native applications,
-                  CI/CD pipelines, and comprehensive test automation frameworks.
+                  Senior Java Developer with 15+ years of experience
+                  specializing in microservices architecture, Spring ecosystem,
+                  and DevOps practices. Proven track record in designing and
+                  implementing cloud-native applications, CI/CD pipelines, and
+                  comprehensive test automation frameworks.
                 </p>
               </CardContent>
             </Card>
@@ -160,7 +237,9 @@ export default function Component() {
 
             <Card className="border-black/10 dark:border-white/10 bg-white/80 dark:bg-zinc-800/80">
               <CardHeader>
-                <CardTitle className="font-serif">Professional Experience</CardTitle>
+                <CardTitle className="font-serif">
+                  Professional Experience
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {[
@@ -194,7 +273,8 @@ export default function Component() {
                       "Set up automated UI testing with Selenium and Cucumber",
                       "Created performance testing suite using Gatling",
                     ],
-                    technologies: "Java 11, Spring Cloud, Cloud Foundry, Selenium, Cucumber",
+                    technologies:
+                      "Java 11, Spring Cloud, Cloud Foundry, Selenium, Cucumber",
                   },
                   {
                     title: "Java Developer",
@@ -205,7 +285,8 @@ export default function Component() {
                       "Implemented secure authentication and authorization system",
                       "Created automated test suites with JUnit and Mockito",
                     ],
-                    technologies: "Java 8, Spring MVC, Spring Security, PostgreSQL, JUnit, Mockito",
+                    technologies:
+                      "Java 8, Spring MVC, Spring Security, PostgreSQL, JUnit, Mockito",
                   },
                   {
                     title: "Technical Lead",
@@ -215,14 +296,15 @@ export default function Component() {
                       "Led development team and managed technical architecture",
                       "Implemented CI/CD automation and infrastructure",
                       "Integrated PIM and ERP systems",
-                      "Conducted \"Provision Automation Tools\" training sessions",
+                      'Conducted "Provision Automation Tools" training sessions',
                     ],
                     achievements: [
                       "Successfully delivered multiple internal projects",
                       "Established automated deployment pipeline",
                       "Reduced system integration issues by 40%",
                     ],
-                    technologies: "Java 8, Spring Framework, JavaEE, Wildfly, PostgreSQL, Angular, Docker, Ansible",
+                    technologies:
+                      "Java 8, Spring Framework, JavaEE, Wildfly, PostgreSQL, Angular, Docker, Ansible",
                   },
                   {
                     title: "Senior Developer",
@@ -233,11 +315,13 @@ export default function Component() {
                       "Developed RESTful services and frontend components",
                       "Created automated testing framework",
                     ],
-                    technologies: "SAP Hybris 5, Java 8, Spring MVC, Spring Security, PostgreSQL, MS SQL, JUnit",
+                    technologies:
+                      "SAP Hybris 5, Java 8, Spring MVC, Spring Security, PostgreSQL, MS SQL, JUnit",
                   },
                   {
                     title: "Software Engineer",
-                    company: "Environmental, Safety, and Quality Management Software",
+                    company:
+                      "Environmental, Safety, and Quality Management Software",
                     period: "08/2010 - 02/2014",
                     responsibilities: [
                       "Developed database solutions and reporting systems",
@@ -250,16 +334,24 @@ export default function Component() {
                       "Improved reporting performance by 60%",
                       "Established development best practices",
                     ],
-                    technologies: "Java, JavaEE, Spring Framework, Oracle PL/SQL, Hibernate, JPA, REST",
+                    technologies:
+                      "Java, JavaEE, Spring Framework, Oracle PL/SQL, Hibernate, JPA, REST",
                   },
                 ].map((job, index) => (
-                  <div key={index} className="border-t border-black/10 dark:border-white/10 pt-4 first:border-t-0 first:pt-0">
+                  <div
+                    key={index}
+                    className="border-t border-black/10 dark:border-white/10 pt-4 first:border-t-0 first:pt-0"
+                  >
                     <div className="flex justify-between items-start mb-2">
                       <div>
                         <h3 className="font-serif">{job.title}</h3>
-                        <p className="text-sm text-zinc-600 dark:text-zinc-400 font-light">{job.company}</p>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400 font-light">
+                          {job.company}
+                        </p>
                       </div>
-                      <span className="text-sm text-zinc-600 dark:text-zinc-400 font-light">{job.period}</span>
+                      <span className="text-sm text-zinc-600 dark:text-zinc-400 font-light">
+                        {job.period}
+                      </span>
                     </div>
                     <ul className="list-disc list-inside text-sm text-zinc-600 dark:text-zinc-400 space-y-1 font-light">
                       {job.responsibilities.map((resp, i) => (
@@ -268,7 +360,9 @@ export default function Component() {
                     </ul>
                     {job.achievements && (
                       <>
-                        <h4 className="font-serif mt-2 mb-1 text-sm">Key Achievements:</h4>
+                        <h4 className="font-serif mt-2 mb-1 text-sm">
+                          Key Achievements:
+                        </h4>
                         <ul className="list-disc list-inside text-sm text-zinc-600 dark:text-zinc-400 space-y-1 font-light">
                           {job.achievements.map((achievement, i) => (
                             <li key={i}>{achievement}</li>
@@ -279,7 +373,9 @@ export default function Component() {
                     {job.technologies && (
                       <p className="mt-2 text-sm font-light">
                         <span className="font-serif">Technologies:</span>{" "}
-                        <span className="text-zinc-600 dark:text-zinc-400">{job.technologies}</span>
+                        <span className="text-zinc-600 dark:text-zinc-400">
+                          {job.technologies}
+                        </span>
                       </p>
                     )}
                   </div>
@@ -296,5 +392,5 @@ export default function Component() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
